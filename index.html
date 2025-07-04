@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Exil Website</title>
+  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="stars/background.css">
+</head>
+<body>
+  <!-- Star background -->
+  <canvas id="stars"></canvas>
+
+  <!-- Music player (starts after user click) -->
+  <audio id="bgm" loop hidden>
+    <source src="assets/bgmusic.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+
+  <!-- Card -->
+  <div class="card">
+    <img src="assets/avatar.jpg" alt="Profile" class="avatar">
+    <h1>exil</h1>
+    <p>exil caught you baby</p>
+    <div class="socials">
+      <a href="#"><img src="assets/discord.png" alt="Discord"></a>
+      <a href="#"><img src="assets/telegram.png" alt="Telegram"></a>
+      <a href="#"><img src="assets/instagram.png" alt="Instagram"></a>
+    </div>
+  </div>
+
+  <!-- Stars JS -->
+  <script src="stars/stars.js"></script>
+
+  <!-- Play background music on first click -->
+  <script>
+    document.body.addEventListener("click", function () {
+      const audio = document.getElementById("bgm");
+      audio.play().catch(() => {
+        console.log("Autoplay blocked until user clicks.");
+      });
+    }, { once: true });
+  </script>
+</body>
+</html>
